@@ -1,21 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import EmailSubscribe from "../components/EmailSubscribe.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <div class="control has-icons-left has-icons-right">
-      <input class="input is-large" type="email" placeholder="Email" />
-      <span class="icon is-medium is-left">
-        <i class="fas fa-envelope"></i>
-      </span>
-      <span class="icon is-medium is-right">
-        <i class="fas fa-check"></i>
-      </span>
+<Layout title="To The Mast">
+  <section class="hero is-fullheight is-info">
+    <div class="hero-body">
+      <div class="is-flex-grow-1">
+        <p class="title">To The Mast</p>
+        <p class="subtitle">Daily reminders to re-commit to your goals.</p>
+      </div>
+      <div class="columns is-centered is-flex is-vcentered is-flex-grow-2">
+        <div class="column is-half">
+          <p class="is-size-5">We're not quite ready. Sign up to receive an email when we are.</p>
+          <EmailSubscribe />
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 </Layout>
 
 <style>
