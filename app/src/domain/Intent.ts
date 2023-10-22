@@ -21,7 +21,7 @@ export type IntentActiveState = (typeof IntentActiveState)[keyof typeof IntentAc
 
 export type IntentModelProps = {
   id: IntentId;
-  user_id?: string;
+  userId?: string;
   activeState: IntentActiveState;
   bigThing: BigThing;
   smallThing: SmallThing;
@@ -32,7 +32,7 @@ export type IntentModelProps = {
 
 export default class Intent extends AggregateRoot {
   public readonly id: IntentId;
-  public readonly user_id?: string;
+  public readonly userId?: string;
   public readonly activeState: IntentActiveState;
   public readonly bigThing: BigThing;
   public readonly smallThing: SmallThing;
@@ -43,7 +43,7 @@ export default class Intent extends AggregateRoot {
   static createNew(): Intent {
     return new Intent({
       id: createEntityId("int"),
-      user_id: undefined,
+      userId: undefined,
       activeState: IntentActiveState.PAUSED,
       bigThing: BigThing.create({ text: "a big thing" }),
       smallThing: SmallThing.create({ text: "a small thing" }),
@@ -68,7 +68,7 @@ export default class Intent extends AggregateRoot {
     super();
 
     this.id = props.id;
-    this.user_id = props.user_id;
+    this.userId = props.userId;
     this.activeState = props.activeState;
     this.bigThing = props.bigThing;
     this.smallThing = props.smallThing;
@@ -76,4 +76,9 @@ export default class Intent extends AggregateRoot {
     this.touchpoints = props.touchpoints;
     this.communicationSlots = props.communicationSlots;
   }
+}
+
+export interface IIntentRepository {
+  getById(id: string): Promise<Intent | null>;
+  save(intent: Intent): Promise<void>;
 }
