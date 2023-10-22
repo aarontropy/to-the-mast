@@ -9,7 +9,7 @@ describe("Intent Domain Model", () => {
 
     expect(dto).toEqual({
       domainEvents: [],
-      id: "abc",
+      id: dto.id,
       activeState: "paused",
       bigThing: { text: "a big thing" },
       smallThing: { text: "a small thing" },

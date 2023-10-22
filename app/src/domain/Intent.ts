@@ -6,6 +6,7 @@ import SmallThing from "./SmallThing";
 import TouchpointCollection, { Touchpoint } from "./TouchpointCollection";
 import AggregateRoot from "./core/AggregateRoot";
 import { EntityId } from "./core/Entity";
+import { createEntityId } from "./services/IdService";
 
 export const IntentActiveState = {
   ACTIVE: "active",
@@ -41,7 +42,7 @@ export default class Intent extends AggregateRoot {
 
   static createNew(): Intent {
     return new Intent({
-      id: "abc",
+      id: createEntityId("int"),
       user_id: undefined,
       activeState: IntentActiveState.PAUSED,
       bigThing: BigThing.create({ text: "a big thing" }),

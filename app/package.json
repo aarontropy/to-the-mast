@@ -21,6 +21,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "ulid": "^2.3.0"
   }
 }
