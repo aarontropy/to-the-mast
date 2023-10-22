@@ -1,0 +1,26 @@
+{
+  "name": "to-the-mast-app",
+  "version": "1.0.0",
+  "description": "Main App for To The Mast",
+  "main": "index.js",
+  "author": "Aaron W Johnson",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.6",
+    "@types/node": "^20.8.7",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.51.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.28.1",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10"
+  }
+}
