@@ -5,6 +5,7 @@ import Intent, { IIntentRepository, IntentActiveState } from "../../domain/Inten
 import Schedule, { ScheduleFrequency } from "../../domain/Schedule";
 import SmallThing from "../../domain/SmallThing";
 import TouchpointCollection, { Touchpoint, TouchpointTime } from "../../domain/TouchpointCollection";
+import { Db } from "../db";
 
 type IntentPersistenceModel = {
   intents: {
@@ -25,6 +26,8 @@ type IntentPersistenceModel = {
 };
 
 export default class IntentRepo implements IIntentRepository {
+  static intentTablename = "intents";
+
   static toPersistence(intent: Intent): IntentPersistenceModel {
     if (!intent.userId) {
       throw new Error("Cannot persist Intent without a userId");
@@ -73,7 +76,23 @@ export default class IntentRepo implements IIntentRepository {
     });
   }
 
-  async getById(id: string): Promise<Intent | null> {}
+  constructor(public readonly db: Db) {}
 
-  async save(intent: Intent): Promise<void> {}
+  async getById(id: string): Promise<Intent | null> {
+    const data = await this.db.first("*").from<IntentPersistenceModel>(IntentRepo.intentTablename).where("id", id);
+
+    return data ? IntentRepo.toDomain(data) : null;
+  }
+
+  async save(intent: Intent): Promise<void> {
+    const { id, ...intentData } = IntentRepo.toPersistence(intent).intents;
+
+    const existing = await this.db.first("id").from(IntentRepo.intentTablename).where({ id });
+
+    if (existing) {
+      await this.db(IntentRepo.intentTablename).where({ id }).update(intentData);
+    } else {
+      await this.db(IntentRepo.intentTablename).insert({ id, ...intentData });
+    }
+  }
 }

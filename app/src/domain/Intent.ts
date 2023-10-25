@@ -40,10 +40,10 @@ export default class Intent extends AggregateRoot {
   public readonly touchpoints: TouchpointCollection;
   public readonly communicationSlots: CommunicationSlots;
 
-  static createNew(): Intent {
+  static createNew(userId: string): Intent {
     return new Intent({
       id: createEntityId("int"),
-      userId: undefined,
+      userId: userId,
       activeState: IntentActiveState.PAUSED,
       bigThing: BigThing.create({ text: "a big thing" }),
       smallThing: SmallThing.create({ text: "a small thing" }),

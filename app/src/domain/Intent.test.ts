@@ -4,11 +4,12 @@ import Intent from "./Intent";
 describe("Intent Domain Model", () => {
   it("creates with defaults", () => {
     const today = Day.today().value;
-    const intent = Intent.createNew();
+    const intent = Intent.createNew("abc");
     const dto = intent.asDTO();
 
     expect(dto).toEqual({
       domainEvents: [],
+      userId: "abc",
       id: dto.id,
       activeState: "paused",
       bigThing: { text: "a big thing" },
