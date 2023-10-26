@@ -79,7 +79,11 @@ export default class IntentRepo implements IIntentRepository {
   constructor(public readonly db: Db) {}
 
   async getById(id: string): Promise<Intent | null> {
-    const data = await this.db.first("*").from<IntentPersistenceModel>(IntentRepo.intentTablename).where("id", id);
+    const intents = await this.db
+      .first("*")
+      .from<IntentPersistenceModel["intents"]>(IntentRepo.intentTablename)
+      .where("id", id);
+    const data = { intents };
 
     return data ? IntentRepo.toDomain(data) : null;
   }

@@ -9,3 +9,7 @@ const knex = Knex({
 export type Db = Knex.Knex;
 
 export default knex;
+
+export async function clearDb() {
+  await knex("intents").truncate();
+}
