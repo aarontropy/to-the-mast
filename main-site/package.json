@@ -10,6 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.6.5"
+    "@astrojs/react": "^3.0.4",
+    "@aws-amplify/ui-react": "^5.3.1",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "astro": "^2.6.5",
+    "aws-amplify": "^5.3.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

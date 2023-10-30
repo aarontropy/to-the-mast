@@ -1,6 +1,13 @@
 ---
+import { Amplify, Auth } from "aws-amplify";
 import Layout from "../layouts/Layout.astro";
 import EmailSubscribe from "../components/EmailSubscribe.astro";
+import Settings from "../settings";
+
+import { withAuthenticator, WithAuthenticatorProps, Authenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+
+Amplify.configure({ Auth: Settings.auth });
 ---
 
 <Layout title="To The Mast">
