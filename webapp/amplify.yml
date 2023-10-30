@@ -3,11 +3,14 @@ applications:
   - frontend:
       phases:
         build:
-          commands: []
+          commands:
+            - npm run build
       artifacts:
-        baseDirectory: /
+        baseDirectory: .next
         files:
-          - '**/*'
+          - "**/*"
       cache:
-        paths: []
+        paths:
+          - node_modules/**/*
+
     appRoot: webapp
