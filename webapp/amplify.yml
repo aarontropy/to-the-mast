@@ -4,6 +4,7 @@ applications:
       phases:
         build:
           commands:
+            - npm install
             - npm run build
       artifacts:
         baseDirectory: .next
