@@ -15,9 +15,9 @@ const Hero = () => {
               We're not quite ready. Sign up to receive an email when we are.
             </p>
 
-            {/* <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               Something here
-            </div> */}
+            </div>
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
