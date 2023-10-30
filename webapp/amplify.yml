@@ -2,9 +2,11 @@ version: 1
 applications:
   - frontend:
       phases:
+        preBuild:
+          commands:
+            - npm ci
         build:
           commands:
-            - npm install
             - npm run build
       artifacts:
         baseDirectory: .next
