@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tothemastwebapp-dev-211109-authRole",
+      "UnauthRoleArn": "arn:aws:iam::273590487999:role/amplify-tothemastwebapp-dev-211109-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::273590487999:role/amplify-tothemastwebapp-dev-211109-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-tothemastwebapp-dev-211109-deployment",
+      "UnauthRoleName": "amplify-tothemastwebapp-dev-211109-unauthRole",
+      "StackName": "amplify-tothemastwebapp-dev-211109",
+      "StackId": "arn:aws:cloudformation:us-east-2:273590487999:stack/amplify-tothemastwebapp-dev-211109/365eeb20-76c1-11ee-8145-0aad5be0b5e9",
+      "AmplifyAppId": "d20t7sdd93td6t"
+    }
+  }
+}
